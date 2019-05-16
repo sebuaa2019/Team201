@@ -317,7 +317,7 @@ class LeftTabWidget(QWidget):
         #os.system("gnome-terminal -e 'bash -c \"roslaunch wpb_home_tutorials gmapping.launch; exec bash\"'")
     def button2_2click(self):
         print("rosrun map_server map_saver -f map")
-        os.system("gnome-terminal -e 'bash -c \"rosrun map_server map_saver -f map&&cp /home/robot/catkin_ws/src/team_201/map.yaml /home/robot/catkin_ws/src/wpb_home/wpb_home_tutorials/maps/map.yaml&&cp /home/robot/catkin_ws/src/team_201/map.pgm /home/robot/catkin_ws/src/wpb_home/wpb_home_tutorials/maps/map.pgm\"'")##yidong
+        os.system("gnome-terminal -e 'bash -c \"rosrun map_server map_saver -f map&&cp map.yaml /home/robot/catkin_ws/src/wpb_home/wpb_home_tutorials/maps/map.yaml&&cp map.pgm /home/robot/catkin_ws/src/wpb_home/wpb_home_tutorials/maps/map.pgm\"'")##yidong
 	#save in the main dir
         #print("移动指令")
 	#may be we do not need to really change the map path, because we can change the map path in some launch files
