@@ -35,7 +35,6 @@ class LeftTabWidget(QWidget):
             QListWidget, QListView, QTreeWidget, QTreeView {
                 outline: 0px;
             }
-
             QListWidget {
                 min-width: 200px;
                 max-width: 200px;
@@ -43,7 +42,6 @@ class LeftTabWidget(QWidget):
                 color: White;
                 background:#454545;
             }
-
             QListWidget::Item:selected {
                 background: lightGray;
                 border-left: 5px solid #EE9A00;
@@ -339,6 +337,10 @@ class LeftTabWidget(QWidget):
         #os.system("gnome-terminal -e 'bash -c \"rosrun waterplus_map_tools wp_saver; exec bash\"'")
 	#save waypoints.xml into /home/robot/
         self.comboBox2.clear()
+		if os.path.exists('/home/robot/waypoints.xml') == False ：
+			file = open('/home/robot/waypoints.xml','w')
+			file.write('<Waterplus>\n</Waterplus>')
+			file.close()
         f=open('/home/robot/waypoints.xml', 'r')
         pointlist=re.findall(r"(?<=<Name>).+?(?=</Name>)", f.read(), re.S)
         print(pointlist)
