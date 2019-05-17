@@ -27,6 +27,12 @@ static void Init_waypoints()
     arWaypoint.push_back("4");
     arWaypoint.push_back("5");
     arWaypoint.push_back("6");
+    arWaypoint.push_back("7");
+    arWaypoint.push_back("8");
+    arWaypoint.push_back("9");
+    arWaypoint.push_back("10");
+    arWaypoint.push_back("11");
+    arWaypoint.push_back("12");
 }
 
 static void Speak(string inStr)
@@ -119,26 +125,31 @@ int main(int argc, char** argv)
 							continue;
                         }
             srvName.request.name = strGoto;
+	
             if (cliGetWPName.call(srvName))
             {
                 std::string name = srvName.response.name;
+
                 float x = srvName.response.pose.position.x;
                 float y = srvName.response.pose.position.y;
                 //ROS_INFO("Get_wp_name: name = %s (%.2f,%.2f)", strGoto.c_str(),x,y);
 
                 MoveBaseClient ac("move_base", true);
+
                 if(!ac.waitForServer(ros::Duration(5.0)))
                 {
                     ROS_INFO("The move_base action server is no running. action abort...");
                 }
                 else
                 {
+
                     move_base_msgs::MoveBaseGoal goal;
                     goal.target_pose.header.frame_id = "map";
                     goal.target_pose.header.stamp = ros::Time::now();
                     goal.target_pose.pose = srvName.response.pose;
-                    ac.sendGoal(goal);
-                    ac.waitForResult();
+                    ac.sendGoal(goal);////////////////////////////
+                    ac.waitForResult();//waiting for arriving to the goal
+
                     if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
                     {
                         ROS_INFO("Arrived at %s!",strGoto.c_str());
