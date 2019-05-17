@@ -26,6 +26,7 @@ time_config = r"^#define time [0-9]{1,3}\n$"
 class LeftTabWidget(QWidget):
     '''左侧选项栏'''
     pointlist=[] #########
+    renameIndex = 1
     def __init__(self):
         super(LeftTabWidget, self).__init__()
         self.setObjectName('LeftTabWidget')
@@ -71,7 +72,10 @@ class LeftTabWidget(QWidget):
         self.main_layout.addWidget(self.right_widget)
 
         self._setup_ui()
-
+        if os.path.exists('/home/robot/waypoints.xml') == False :
+            file = open('/home/robot/waypoints.xml','w')
+            file.write('<Waterplus>\n</Waterplus>')
+            file.close()
         f=open('/home/robot/waypoints.xml', 'r')#############
         pointlist=re.findall(r"(?<=<Name>).+?(?=</Name>)", f.read(), re.S)########
         f.close()#######
@@ -330,6 +334,9 @@ class LeftTabWidget(QWidget):
         os.system("gnome-terminal -e 'bash -c \"roslaunch waterplus_map_tools add_waypoint.launch\"'")
         ###???????????????????????????????????
     def button2_4click(self):
+        def indexRename(matched):
+                self.renameIndex+=1;
+                return str(self.renameIndex-1);
         print("rosrun waterplus_map_tools wp_saver")
         os.system("gnome-terminal -e 'bash -c \"cd /home/robot/&&rosrun waterplus_map_tools wp_saver\"'")
         time.sleep(2)
@@ -337,10 +344,17 @@ class LeftTabWidget(QWidget):
         #os.system("gnome-terminal -e 'bash -c \"rosrun waterplus_map_tools wp_saver; exec bash\"'")
 	#save waypoints.xml into /home/robot/
         self.comboBox2.clear()
-		if os.path.exists('/home/robot/waypoints.xml') == False ：
-			file = open('/home/robot/waypoints.xml','w')
-			file.write('<Waterplus>\n</Waterplus>')
-			file.close()
+        if os.path.exists('/home/robot/waypoints.xml') == False :
+            file = open('/home/robot/waypoints.xml','w')
+            file.write('<Waterplus>\n</Waterplus>')
+            file.close()
+        f=open('/home/robot/waypoints.xml', 'r')
+        newFile=re.sub(r"(?<=<Name>).+?(?=</Name>)",indexRename,f.read())
+        f.close()
+        f=open('/home/robot/waypoints.xml', 'w')
+        f.write(newFile)
+        f.close()
+        self.renameIndex = 1
         f=open('/home/robot/waypoints.xml', 'r')
         pointlist=re.findall(r"(?<=<Name>).+?(?=</Name>)", f.read(), re.S)
         print(pointlist)
