@@ -14,7 +14,7 @@ from PyQt5.QtWidgets import QHBoxLayout
 from PyQt5.QtCore import QSize, Qt
 from PyQt5.QtGui import QColor,QFont
 from PyQt5 import QtCore,QtGui,QtWidgets
-from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import QIcon, QPixmap
 import qtawesome
 from PyQt5.QtGui import QRegExpValidator,QDoubleValidator
 
@@ -42,8 +42,7 @@ class LeftTabWidget(QWidget):
                 max-width: 200px;
                 
                 color: White;
-                background:#454545;
-            }
+                background:#454545                            }
             QListWidget::Item:selected {
                 background: lightGray;
                 border-left: 5px solid #EE9A00;
@@ -73,6 +72,7 @@ class LeftTabWidget(QWidget):
         self.main_layout.addWidget(self.right_widget)
 
         self._setup_ui()
+        '''
         if os.path.exists('/home/robot/waypoints.xml') == False :
             file = open('/home/robot/waypoints.xml','w')
             file.write('<Waterplus>\n</Waterplus>')
@@ -81,6 +81,7 @@ class LeftTabWidget(QWidget):
         pointlist=re.findall(r"(?<=<Name>).+?(?=</Name>)", f.read(), re.S)########
         f.close()#######
         self.comboBox2.addItems(pointlist)######
+        '''
 
     def _setup_ui(self):
         '''加载界面ui'''
@@ -92,7 +93,7 @@ class LeftTabWidget(QWidget):
         self.left_widget.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)  #隐藏滚动条
         self.left_widget.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
 
-        list_str = ['功能选择','扫地','导航','取物','关于MOSS','使用方法','注意事项','硬件设置','联系与帮助','遇到问题','联系lzz']
+        list_str = ['功能选择','扫地','导航','取物','关于MOSS','使用方法','注意事项','硬件设置','联系与帮助','遇到问题','联系我们']
 
         for i in range(11):
             self.item = QListWidgetItem(list_str[i],self.left_widget)   #左侧选项的添加
@@ -281,6 +282,121 @@ class LeftTabWidget(QWidget):
                 
                 self.right_widget.addWidget(self.centralWidget2)
 
+            elif i == 10:
+                self.centralWidget10=QtWidgets.QWidget()
+                self.centralWidget10.setStyleSheet('''background:black;border-width:0;''');
+
+                self.layout10 = QtWidgets.QGridLayout()  # 创建左侧部件的网格布局层
+                self.centralWidget10.setLayout(self.layout10)
+
+                self.label10_1 = QtWidgets.QLabel()
+                self.label10_1.setTextFormat(QtCore.Qt.AutoText)
+                self.label10_1.setText("Contact us!")
+                self.label10_1.setStyleSheet('''color:white;font-size:23px;background:#FF9900;
+                                                font-family:Times new Romans;''');
+                self.label10_1.setAlignment(Qt.AlignCenter)
+
+                self.label10_2 = QtWidgets.QLabel()
+                self.label10_2.setTextFormat(QtCore.Qt.AutoText)
+                self.label10_2.setPixmap(QPixmap('lzz.png'))
+                self.label10_2.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,0,0);
+                                                border-width:10;border-style:outset;border-color:red;
+                                                font-family:等线;''');
+                self.label10_2.setAlignment(Qt.AlignCenter)
+
+                self.label10_3 = QtWidgets.QLabel()
+                self.label10_3.setTextFormat(QtCore.Qt.AutoText)
+                self.label10_3.setText("组长 李贞子\n邮箱：ZhenziL@buaa.edu.cn\n负责：UI架构、自由避障行走、抓取\n格言：我是傻猪")
+                self.label10_3.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,00,00);
+                                                border-width:5;border-style:ridge;border-color:#FF9900;
+                                                font-family:等线;''');
+                self.label10_3.setAlignment(Qt.AlignCenter)
+
+                self.label10_4 = QtWidgets.QLabel()
+                self.label10_4.setTextFormat(QtCore.Qt.AutoText)
+                self.label10_4.setPixmap(QPixmap('wrz.png'))
+                self.label10_4.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,0,0);
+                                                border-width:10;border-style:outset;border-color:red;
+                                                font-family:等线;''');
+                self.label10_4.setAlignment(Qt.AlignCenter)
+
+                self.label10_5 = QtWidgets.QLabel()
+                self.label10_5.setTextFormat(QtCore.Qt.AutoText)
+                self.label10_5.setText("组员：王润泽\n邮箱：beihangcj@hotmail.com\n负责：自由避障行走以及抓取部分UI\n格言：广告位招租")
+                self.label10_5.setStyleSheet('''color:white;font-size:23px;background:rgb(00,0,0,0);
+                                                border-width:5;border-style:ridge;border-color:#FF9900;
+                                                font-family:等线;''');
+                self.label10_5.setAlignment(Qt.AlignCenter)
+
+                self.label10_6 = QtWidgets.QLabel()
+                self.label10_6.setTextFormat(QtCore.Qt.AutoText)
+                self.label10_6.setPixmap(QPixmap('zl.png'))
+                self.label10_6.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,00,0);
+                                                border-width:10;border-style:outset;border-color:red;
+                                                font-family:等线;''');
+                self.label10_6.setAlignment(Qt.AlignCenter)
+
+                self.label10_7 = QtWidgets.QLabel()
+                self.label10_7.setTextFormat(QtCore.Qt.AutoText)
+                self.label10_7.setText("组员：张璐\n邮箱：beihangcj@hotmail.com\n负责：导航部分功能\n格言：好好学习天天向上")
+                self.label10_7.setStyleSheet('''color:white;font-size:23px;background:rgb(0,00,0,0);
+                                                border-width:5;border-style:ridge;border-color:#FF9900;
+                                                font-family:等线;''');
+                self.label10_7.setAlignment(Qt.AlignCenter)
+
+                self.label10_8 = QtWidgets.QLabel()
+                self.label10_8.setTextFormat(QtCore.Qt.AutoText)
+                self.label10_8.setPixmap(QPixmap('zjl.png'))
+                self.label10_8.setStyleSheet('''color:white;font-size:23px;
+                                                border-width:10;border-style:outset;border-color:red;
+                                                background:rgb(100,100,100,100);
+                                                font-family:等线;''');
+                self.label10_8.setAlignment(Qt.AlignCenter)
+
+                self.label10_9 = QtWidgets.QLabel()
+                self.label10_9.setTextFormat(QtCore.Qt.AutoText)
+                self.label10_9.setText("组员：张佳琳\n邮箱：beihangcj@hotmail.com\n负责：导航部分UI\n格言：戏说不是胡说，改编不是乱编")
+                self.label10_9.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,0,0);
+                                                border-width:5;border-style:ridge;border-color:#FF9900;
+                                                font-family:等线;''');
+                self.label10_9.setAlignment(Qt.AlignCenter)
+
+                self.label10_10 = QtWidgets.QLabel()
+                self.label10_10.setTextFormat(QtCore.Qt.AutoText)
+                self.label10_10.setPixmap(QPixmap('lty.png'))
+                self.label10_10.setStyleSheet('''color:white;font-size:23px;background:rgb(00,00,0,0);
+                                                 border-width:10;border-style:outset;border-color:red;
+                                                font-family:等线;''');
+                self.label10_10.setAlignment(Qt.AlignCenter)
+
+                self.label10_11 = QtWidgets.QLabel()
+                self.label10_11.setTextFormat(QtCore.Qt.AutoText)
+                self.label10_11.setText("组员：李天宇\n邮箱：beihangcj@hotmail.com\n负责：动态避障功能\n格言：我不做人啦")
+                self.label10_11.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,0,0);
+                                                border-width:5;border-style:ridge;border-color:#FF9900;
+                                                font-family:等线;''');
+                self.label10_11.setAlignment(Qt.AlignCenter)
+
+                #self.layout10.setColumnStretch(0, 1)
+                self.layout10.addWidget(self.label10_1,1,1,1,6)
+
+                self.layout10.addWidget(self.label10_2,2,1)
+                self.layout10.addWidget(self.label10_3,3,1,2,1)
+
+                self.layout10.addWidget(self.label10_4,2,2)
+                self.layout10.addWidget(self.label10_5,3,2,2,1)
+
+                self.layout10.addWidget(self.label10_6,2,3)
+                self.layout10.addWidget(self.label10_7,3,3,2,1)
+
+                self.layout10.addWidget(self.label10_8,2,4)
+                self.layout10.addWidget(self.label10_9,3,4,2,1)
+
+                self.layout10.addWidget(self.label10_10,2,5)
+                self.layout10.addWidget(self.label10_11,3,5,2,1)
+
+                self.right_widget.addWidget(self.centralWidget10)
+
             else:
                 self.centralWidget0=QtWidgets.QWidget()
                 self.centralWidget0.setStyleSheet('''background:white;border-width:0;''');
@@ -315,13 +431,16 @@ class LeftTabWidget(QWidget):
             f.write(str(time))
 
     def button2_1click(self):
+        '''
         print("roslaunch wpb_home_tutorials gmapping.launch")
         #os.system("roslaunch wpb_home_tutorials gmapping.launch")
         os.system("gnome-terminal -e 'bash -c \"roslaunch wpb_home_tutorials gmapping.launch\"'")
         #os.system("gnome-terminal -e 'bash -c \"ls\"'")
         #os.system("gnome-terminal -e 'bash -c \"roslaunch wpb_home_tutorials gmapping.launch; exec bash\"'")
-
+        '''
+        pass
     def button2_2click(self):
+        '''
         print("rosrun map_server map_saver -f map")
         os.system("gnome-terminal -e 'bash -c \"rosrun map_server map_saver -f map&&cp map.yaml /home/robot/catkin_ws/src/wpb_home/wpb_home_tutorials/maps/map.yaml&&cp map.pgm /home/robot/catkin_ws/src/wpb_home/wpb_home_tutorials/maps/map.pgm\"'")##yidong
 	#save in the main dir
@@ -331,13 +450,19 @@ class LeftTabWidget(QWidget):
 	#args="$(find wpb_home_tutorials)/maps/map.yaml"/>
 	#into
 	#args="/home/robot/map.yaml"/>
+    '''
+        pass
 
     def button2_3click(self):
+        '''
         print("roslaunch waterplus_map_tools add_waypoint.launch")
         os.system("gnome-terminal -e 'bash -c \"roslaunch waterplus_map_tools add_waypoint.launch\"'")
         ###???????????????????????????????????
+        '''
+        pass
 
     def button2_4click(self):
+        '''
         def indexRename(matched):
                 self.renameIndex+=1;
                 return str(self.renameIndex-1);
@@ -364,17 +489,25 @@ class LeftTabWidget(QWidget):
         print(pointlist)
         self.comboBox2.addItems(pointlist)
         f.close()
+        '''
+        pass
 
     def button2_5click(self):
+        '''
         print("roslaunch wpb_home_apps 6_path_plan.launch")
         os.system("gnome-terminal -e 'bash -c \"roslaunch wpb_home_apps 6_path_plan.launch; exec bash\"'")
+        '''
+        pass
 
     def button2_6click(self):
+        pass
+        '''
         print(self.comboBox2.currentIndex()+1)
 	#get to the chosed point
         pointoutput = open('/home/robot/point.txt', 'w')
         pointoutput.write(str(self.comboBox2.currentIndex()+1))
         pointoutput.close()
+        '''
 
     def button3_1click(self):
         os.system("roslaunch myshop shopping_201.launch")
