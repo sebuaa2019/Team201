@@ -27,6 +27,7 @@ class LeftTabWidget(QWidget):
     '''左侧选项栏'''
     pointlist=[] #########
     renameIndex = 1
+
     def __init__(self):
         super(LeftTabWidget, self).__init__()
         self.setObjectName('LeftTabWidget')
@@ -319,6 +320,7 @@ class LeftTabWidget(QWidget):
         os.system("gnome-terminal -e 'bash -c \"roslaunch wpb_home_tutorials gmapping.launch\"'")
         #os.system("gnome-terminal -e 'bash -c \"ls\"'")
         #os.system("gnome-terminal -e 'bash -c \"roslaunch wpb_home_tutorials gmapping.launch; exec bash\"'")
+
     def button2_2click(self):
         print("rosrun map_server map_saver -f map")
         os.system("gnome-terminal -e 'bash -c \"rosrun map_server map_saver -f map&&cp map.yaml /home/robot/catkin_ws/src/wpb_home/wpb_home_tutorials/maps/map.yaml&&cp map.pgm /home/robot/catkin_ws/src/wpb_home/wpb_home_tutorials/maps/map.pgm\"'")##yidong
@@ -329,10 +331,12 @@ class LeftTabWidget(QWidget):
 	#args="$(find wpb_home_tutorials)/maps/map.yaml"/>
 	#into
 	#args="/home/robot/map.yaml"/>
+
     def button2_3click(self):
         print("roslaunch waterplus_map_tools add_waypoint.launch")
         os.system("gnome-terminal -e 'bash -c \"roslaunch waterplus_map_tools add_waypoint.launch\"'")
         ###???????????????????????????????????
+
     def button2_4click(self):
         def indexRename(matched):
                 self.renameIndex+=1;
@@ -360,9 +364,11 @@ class LeftTabWidget(QWidget):
         print(pointlist)
         self.comboBox2.addItems(pointlist)
         f.close()
+
     def button2_5click(self):
         print("roslaunch wpb_home_apps 6_path_plan.launch")
         os.system("gnome-terminal -e 'bash -c \"roslaunch wpb_home_apps 6_path_plan.launch; exec bash\"'")
+
     def button2_6click(self):
         print(self.comboBox2.currentIndex()+1)
 	#get to the chosed point
@@ -370,6 +376,17 @@ class LeftTabWidget(QWidget):
         pointoutput.write(str(self.comboBox2.currentIndex()+1))
         pointoutput.close()
 
+    def button3_1click(self):
+        os.system("roslaunch myshop shopping_201.launch")
+
+    def button3_2click(self):
+        r = os.popen("roslaunch darknet_ros darknet_ros.launch")
+        text = r.read()
+        textlist = text.split("\n")
+        for text in textlist:
+            if text.startswith("[ERROR]"):
+                button3_2click()
+                return
 
 def main():
     ''' '''
