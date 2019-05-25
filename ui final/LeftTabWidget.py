@@ -188,100 +188,163 @@ class LeftTabWidget(QWidget):
                 self.centralWidget2.setLayout(self.layout2)
                 
                 self.button2_1 = QtWidgets.QPushButton(self.centralWidget2)
-                #self.button2_1.setGeometry(QtCore.QRect(210, 110, 100, 60))
                 self.button2_1.setObjectName("button1")
                 self.button2_1.setText("构建地图")
                 self.button2_1.clicked.connect(self.button2_1click)
-                self.button2_1.setFixedSize(200,80)
                 self.button2_1.setStyleSheet('''QPushButton{background:#EE9A00;border-radius:20px;font-family:等线;
                                                font-size:18px;color:white}QPushButton:hover{background:#EEDC82;}''')
+                self.button2_1.setFixedHeight(40)
 
                 self.button2_2 = QtWidgets.QPushButton(self.centralWidget2)
-                #self.button2_2.setGeometry(QtCore.QRect(350, 110, 100, 60))
                 self.button2_2.setObjectName("button2")
                 self.button2_2.setText("保存地图")
                 self.button2_2.clicked.connect(self.button2_2click)
-                self.button2_2.setFixedSize(200,80)
                 self.button2_2.setStyleSheet('''QPushButton{background:#EE9A00;border-radius:20px;font-family:等线;
                                                font-size:18px;color:white}QPushButton:hover{background:#EEDC82;}''')
+                self.button2_2.setFixedHeight(40)
 
                 self.button2_3 = QtWidgets.QPushButton(self.centralWidget2)
-                #self.button2_3.setGeometry(QtCore.QRect(210, 210, 100, 60))
                 self.button2_3.setObjectName("button3")
                 self.button2_3.setText("设立航点")
                 self.button2_3.clicked.connect(self.button2_3click)
-                self.button2_3.setFixedSize(200,80)
                 self.button2_3.setStyleSheet('''QPushButton{background:#EE9A00;border-radius:20px;font-family:等线;
                                                font-size:18px;color:white}QPushButton:hover{background:#EEDC82;}''')
+                self.button2_3.setFixedHeight(40)
 
                 self.button2_4 = QtWidgets.QPushButton(self.centralWidget2)
-                #self.button2_4.setGeometry(QtCore.QRect(350, 210, 100, 60))
                 self.button2_4.setObjectName("button4")
                 self.button2_4.setText("保存航点")
                 self.button2_4.clicked.connect(self.button2_4click)
-                self.button2_4.setFixedSize(200,80)
                 self.button2_4.setStyleSheet('''QPushButton{background:#EE9A00;border-radius:20px;font-family:等线;
                                                font-size:18px;color:white}QPushButton:hover{background:#EEDC82;}''')
+                self.button2_4.setFixedHeight(40)
 
                 self.button2_5 = QtWidgets.QPushButton(self.centralWidget2)
-                #self.button2_5.setGeometry(QtCore.QRect(210, 310, 240, 60))
                 self.button2_5.setObjectName("button5")
                 self.button2_5.setText("开始导航")
                 self.button2_5.clicked.connect(self.button2_5click)
-                self.button2_5.setFixedSize(466,80)
                 self.button2_5.setStyleSheet('''QPushButton{background:#EE9A00;border-radius:20px;font-family:等线;
                                                font-size:18px;color:white}QPushButton:hover{background:#EEDC82;}''')
+                self.button2_5.setFixedHeight(40)
                 
 
                 self.comboBox2 = QtWidgets.QComboBox(self.centralWidget2)
-                #self.comboBox2.setGeometry(QtCore.QRect(210, 410, 100, 30))
                 self.comboBox2.setObjectName("comboBox")
-                #self.comboBox2.addItems(self.pointlist)
-                self.comboBox2.setFixedSize(200,50)
                 self.comboBox2.setStyleSheet('''QComboBox{background:#EE9A00;border-radius:10px;font-family:等线;
                                                font-size:18px;color:white}QComboBox:hover{background:#EEDC82;}''')
+                self.comboBox2.setFixedHeight(40)
 
                 self.button2_6 = QtWidgets.QPushButton(self.centralWidget2)
-                #self.button2_6.setGeometry(QtCore.QRect(350, 410, 100, 30))
                 self.button2_6.setObjectName("button6")
                 self.button2_6.setText("G O !")
                 self.button2_6.clicked.connect(self.button2_6click)
-                self.button2_6.setFixedSize(200,50)
                 self.button2_6.setStyleSheet('''QPushButton{background:#EE9A00;border-radius:20px;font-family:等线;
                                                font-size:18px;color:white}QPushButton:hover{background:#EEDC82;}''')
+                self.button2_6.setFixedHeight(40)
 
                 self.label2_1 = QtWidgets.QLabel()
                 self.label2_1.setTextFormat(QtCore.Qt.AutoText)
                 self.label2_1.setText("导航")
-                self.label2_1.setStyleSheet('''color:white;font-size:23px;background:rgb(100,100,100,100);
-                                                font-family:等线;''');
+                self.label2_1.setStyleSheet('''color:white;font-size:23px;background:rgb(100,100,100,80;background:#454545);
+                                                font-family:等线;''')
                 self.label2_1.setAlignment(Qt.AlignCenter)
+
+                self.label2_2 = QtWidgets.QLabel()
+                self.label2_2.setTextFormat(QtCore.Qt.AutoText)
+                self.label2_2.setText("")
+                self.label2_2.setAlignment(Qt.AlignCenter)
                 
                 self.layout2.setColumnStretch(0, 1)
-                self.layout2.setColumnStretch(1, 1)
-                self.layout2.setColumnStretch(2, 1)
-                self.layout2.setColumnStretch(3, 1)
-                self.layout2.setColumnStretch(4, 1)
-                self.layout2.setColumnStretch(5, 1)
+                self.layout2.setColumnStretch(1, 2)
+                self.layout2.setColumnStretch(2, 2)
+                self.layout2.setColumnStretch(3, 1)            
+                self.layout2.setColumnStretch(4, 2)
+                self.layout2.setColumnStretch(5, 2)
                 self.layout2.setColumnStretch(6, 1)
-                self.layout2.setColumnStretch(7, 1)
-                self.layout2.setColumnStretch(8, 1)
-                self.layout2.setColumnStretch(9, 1)
-                self.layout2.setColumnStretch(10, 1)
-                self.layout2.setColumnStretch(11, 1)
-                self.layout2.setColumnStretch(12, 1)
+                self.layout2.setRowStretch(0,2)
+                self.layout2.setRowStretch(1,2)
+                self.layout2.setRowStretch(2,2)
+                self.layout2.setRowStretch(3,2)
+                self.layout2.setRowStretch(4,2)
+                self.layout2.setRowStretch(5,2)
+                self.layout2.setRowStretch(6,2)
+                self.layout2.setRowStretch(7,2)
+                self.layout2.setRowStretch(8,2)
+                self.layout2.setHorizontalSpacing(5)
+                self.layout2.setVerticalSpacing(5)
 
-                self.layout2.addWidget(self.label2_1, 0, 0, 1, 13)
-                self.layout2.addWidget(self.button2_1, 2, 3, 2, 3)
-                self.layout2.addWidget(self.button2_2, 2, 7, 2, 3)
-                self.layout2.addWidget(self.button2_3, 6, 3, 2, 3)
-                self.layout2.addWidget(self.button2_4, 6, 7, 2, 3)
-                self.layout2.addWidget(self.button2_5, 10, 3, 2, 7)
-                self.layout2.addWidget(self.button2_6, 14, 7, 2, 3)
-                self.layout2.addWidget(self.comboBox2, 14, 3, 2, 3)
+
+                self.layout2.addWidget(self.label2_1, 0,0,1,7)
+                self.layout2.addWidget(self.button2_1, 2,1,1,2)
+                self.layout2.addWidget(self.button2_2, 2,4,1,2)
+                self.layout2.addWidget(self.button2_3, 4,1,1,2)
+                self.layout2.addWidget(self.button2_4, 4,4,1,2)
+                self.layout2.addWidget(self.button2_5, 6,1,1,5)
+                self.layout2.addWidget(self.button2_6, 8,4,1,2)
+                self.layout2.addWidget(self.comboBox2, 8,1,1,2)
+                self.layout2.addWidget(self.label2_2, 9,1,1,7)
                 
                 self.right_widget.addWidget(self.centralWidget2)
 
+            elif i == 9:
+                self.centralWidget9 = QtWidgets.QWidget()
+                self.centralWidget9.setStyleSheet('''background:black;border-width:0;''');
+
+                self.layout9 = QtWidgets.QGridLayout()  # 创建左侧部件的网格布局层
+                self.centralWidget9.setLayout(self.layout9)
+                
+
+                self.label9_1 = QtWidgets.QLabel()
+                self.label9_1.setTextFormat(QtCore.Qt.AutoText)
+                self.label9_1.setText("遇到问题")
+                self.label9_1.setStyleSheet('''color:white;font-size:23px;background:#FF9900;
+                                                font-family:Times new Romans;''');
+                self.label9_1.setAlignment(Qt.AlignCenter)
+                
+
+                self.label9_2 = QtWidgets.QLabel()
+                self.label9_2.setTextFormat(QtCore.Qt.AutoText)
+                self.label9_2.setText("机器人不能运动：\n检查是否有充足电量(23%+)及急停按钮是否被释放")
+                self.label9_2.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,00,00);
+                                                border-width:5;border-style:ridge;border-color:#FF9900;
+                                                font-family:等线;''')
+                self.label9_2.setAlignment(Qt.AlignCenter)
+                
+
+                self.label9_3 = QtWidgets.QLabel()
+                self.label9_3.setTextFormat(QtCore.Qt.AutoText)
+                self.label9_3.setText("机器人部件损坏:\n联系我们、厂家进行维修")
+                self.label9_3.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,00,00);
+                                                border-width:5;border-style:ridge;border-color:#FF9900;
+                                                font-family:等线;''')
+                self.label9_3.setAlignment(Qt.AlignCenter)
+
+
+                self.label9_4 = QtWidgets.QLabel()
+                self.label9_4.setTextFormat(QtCore.Qt.AutoText)
+                self.label9_4.setText("机器人撞击障碍物：\n立即使用急停按钮紧急停止并联系我们")
+                self.label9_4.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,00,00);
+                                                border-width:5;border-style:ridge;border-color:#FF9900;
+                                                font-family:等线;''')
+                self.label9_4.setAlignment(Qt.AlignCenter)
+
+
+                self.label9_5 = QtWidgets.QLabel()
+                self.label9_5.setTextFormat(QtCore.Qt.AutoText)
+                self.label9_5.setText("其他未知错误信息：\n联系我们并报告相关信息（如发生错误前后的操作）")
+                self.label9_5.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,00,00);
+                                                border-width:5;border-style:ridge;border-color:#FF9900;
+                                                font-family:等线;''')
+                self.label9_5.setAlignment(Qt.AlignCenter)
+
+                self.layout9.addWidget(self.label9_1,0,0,1,4)
+                self.layout9.addWidget(self.label9_2,1,0,1,2)
+                self.layout9.addWidget(self.label9_3,1,2,1,2)
+                self.layout9.addWidget(self.label9_4,2,0,1,2)
+                self.layout9.addWidget(self.label9_5,2,2,1,2)
+
+                self.right_widget.addWidget(self.centralWidget9)
+                
             elif i == 10:
                 self.centralWidget10=QtWidgets.QWidget()
                 self.centralWidget10.setStyleSheet('''background:black;border-width:0;''');
