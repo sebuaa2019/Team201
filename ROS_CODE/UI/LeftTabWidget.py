@@ -256,7 +256,7 @@ class LeftTabWidget(QWidget):
 		
             elif i == 6:
                 self.centralWidget6=QtWidgets.QWidget()
-                self.centralWidget6.setStyleSheet('''background:#636363;border-width:0;'''); 
+                self.centralWidget6.setStyleSheet('''background:#636363;border-width:0;''');
 
                 self.layout6 = QtWidgets.QGridLayout()  # 创建左侧部件的网格布局层
                 self.centralWidget6.setLayout(self.layout6)
