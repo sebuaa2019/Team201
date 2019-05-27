@@ -151,7 +151,7 @@ class LeftTabWidget(QWidget):
             elif i == 2:
                 self.centralWidget2=QtWidgets.QWidget()
 
-                self.centralWidget2.setStyleSheet('''background:black;border-width:0;''');
+                self.centralWidget2.setStyleSheet('''background:#636363;border-width:0;''');
                 self.layout2 = QtWidgets.QGridLayout()  # 创建左侧部件的网格布局层
                 self.centralWidget2.setLayout(self.layout2)
                 
@@ -254,7 +254,7 @@ class LeftTabWidget(QWidget):
                 
                 self.right_widget.addWidget(self.centralWidget2)
 		
-			elif i == 6:
+            elif i == 6:
                 self.centralWidget6=QtWidgets.QWidget()
                 self.centralWidget6.setStyleSheet('''background:#636363;border-width:0;''');
 
@@ -300,9 +300,9 @@ class LeftTabWidget(QWidget):
 
                 self.right_widget.addWidget(self.centralWidget6)
 				
-			elif i == 7:
+            elif i == 7:
                 self.centralWidget7=QtWidgets.QWidget()
-                self.centralWidget7.setStyleSheet('''background:black;border-width:0;''');
+                self.centralWidget7.setStyleSheet('''background:#636363;border-width:0;''');
 
                 self.layout7 = QtWidgets.QGridLayout()  # 创建左侧部件的网格布局层
                 self.centralWidget7.setLayout(self.layout7)
@@ -311,7 +311,7 @@ class LeftTabWidget(QWidget):
                 self.label7_1 = QtWidgets.QLabel()
                 self.label7_1.setTextFormat(QtCore.Qt.AutoText)
                 self.label7_1.setText("硬件设置")
-                self.label7_1.setStyleSheet('''color:white;font-size:23px;background:#FF9900;
+                self.label7_1.setStyleSheet('''color:white;font-size:23px;background:#636363;
                                                 font-family:Times new Romans;''');
                 self.label7_1.setAlignment(Qt.AlignCenter)
 
@@ -357,7 +357,7 @@ class LeftTabWidget(QWidget):
                 self.layout7.addWidget(self.label7_5,2,2,1,2)
 
                 self.right_widget.addWidget(self.centralWidget7)
-			elif i == 9:
+            elif i == 9:
                 self.centralWidget9 = QtWidgets.QWidget()
                 self.centralWidget9.setStyleSheet('''background:black;border-width:0;''');
 
@@ -431,7 +431,7 @@ class LeftTabWidget(QWidget):
 	
     def button2_3click(self):
         print("roslaunch waterplus_map_tools add_waypoint.launch")
-	os.system("gnome-terminal -e 'bash -c \"roslaunch waterplus_map_tools add_waypoint.launch\"'")
+        os.system("gnome-terminal -e 'bash -c \"roslaunch waterplus_map_tools add_waypoint.launch\"'")
         
     def button2_4click(self):
         print("rosrun waterplus_map_tools wp_saver")
@@ -441,14 +441,14 @@ class LeftTabWidget(QWidget):
         #os.system("gnome-terminal -e 'bash -c \"rosrun waterplus_map_tools wp_saver; exec bash\"'")
 	#save waypoints.xml into /home/robot/
         self.comboBox2.clear()
-	if os.path.exists('/home/robot/waypoints.xml') == False :
+        if os.path.exists('/home/robot/waypoints.xml') == False :
             file = open('/home/robot/waypoints.xml','w')
             file.write('<Waterplus>\n</Waterplus>')
             file.close()
-	f=open('/home/robot/waypoints.xml', 'r')
+        f=open('/home/robot/waypoints.xml', 'r')
         newFile=re.sub(r"(?<=<Name>).+?(?=</Name>)",indexRename,f.read())
         f.close()
-	f=open('/home/robot/waypoints.xml', 'w')
+        f=open('/home/robot/waypoints.xml', 'w')
         f.write(newFile)
         f.close()
         self.renameIndex = 1
