@@ -223,7 +223,9 @@ class LeftTabWidget(QWidget):
             file = open('/home/robot/waypoints.xml','w')
             file.write('<Waterplus>\n</Waterplus>')
             file.close()
-	
+	f=open('/home/robot/waypoints.xml', 'r')
+        newFile=re.sub(r"(?<=<Name>).+?(?=</Name>)",indexRename,f.read())
+        f.close()
 	f=open('/home/robot/waypoints.xml', 'w')
         f.write(newFile)
         f.close()
