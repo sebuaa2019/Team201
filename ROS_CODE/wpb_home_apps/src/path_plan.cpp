@@ -94,19 +94,6 @@ static void Speak(string inStr)
 }
 
 static int nOpenCount = 0;
-void EntranceCB(const std_msgs::String::ConstPtr & msg)
-{
-    //ROS_WARN("[EntranceCB] - %s",msg->data.c_str());
-    string strDoor = msg->data;
-    if(strDoor == "door open")
-    {
-        nOpenCount ++;
-    }
-    else
-    {
-        nOpenCount = 0;
-    }
-}
 
 int main(int argc, char** argv)
 {
@@ -115,7 +102,6 @@ int main(int argc, char** argv)
     action_manager.Init();
 
     ros::NodeHandle n;
-    ros::Subscriber sub_ent = n.subscribe("/wpb_home/entrance_detect", 10, EntranceCB);
     cliGetWPName = n.serviceClient<waterplus_map_tools::GetWaypointByName>("/waterplus/get_waypoint_name");
     spk_pub = n.advertise<sound_play::SoundRequest>("/robotsound", 20);
 
