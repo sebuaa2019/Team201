@@ -33,7 +33,7 @@ static void Init_waypoints()
     arWaypoint.push_back("10");
     arWaypoint.push_back("11");
     arWaypoint.push_back("12");
-	arWaypoint.push_back("13");
+    arWaypoint.push_back("13");
     arWaypoint.push_back("14");
     arWaypoint.push_back("15");
     arWaypoint.push_back("16");
@@ -72,6 +72,7 @@ int main(int argc, char** argv)
     ros::Rate r(10);
     while(ros::ok())
     {
+	    
 	sleep(1);
 	Speak("I am okay.");
 	sleep(2);
@@ -82,6 +83,11 @@ int main(int argc, char** argv)
             //cin >> instr;
 	    FILE *f_in;
 	    while(true){
+		if((f_in = fopen("/home/robot/point.txt","r"))==NULL){
+			//Speak("idiot");
+			sleep(2);
+			continue;
+		}
 		//Speak("hello");	
 		char ls[10];
 		int ls_int;
