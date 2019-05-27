@@ -85,7 +85,7 @@ int main(){
 	change_msg(3,{"bottle","cup","laptop"},{100,200,300});
 	MyCB(msg);
 	
-	change_msg(4,{"bottle","cup","laptop","bottle","bottle"},{400,500,600,700,800});
+	change_msg(5,{"bottle","cup","laptop","bottle","bottle"},{400,500,600,700,800});
 	MyCB(msg);
 	
 	change_msg(4,{"mouse","person","laptop","cell phone"},{700,800,900,1000});
