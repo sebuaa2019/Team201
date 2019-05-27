@@ -254,7 +254,53 @@ class LeftTabWidget(QWidget):
                 
                 self.right_widget.addWidget(self.centralWidget2)
 		
-	    elif i == 7:
+			elif i == 6:
+                self.centralWidget6=QtWidgets.QWidget()
+                self.centralWidget6.setStyleSheet('''background:#636363;border-width:0;''');
+
+                self.layout6 = QtWidgets.QGridLayout()  # 创建左侧部件的网格布局层
+                self.centralWidget6.setLayout(self.layout6)
+
+                ##start coding
+                self.label6_1 = QtWidgets.QLabel()
+                self.label6_1.setTextFormat(QtCore.Qt.AutoText)
+                self.label6_1.setText("注意事项")
+                self.label6_1.setStyleSheet('''color:white;font-size:23px;background:#FF9900;
+                                                font-family:Times new Romans;''');
+                self.label6_1.setAlignment(Qt.AlignCenter)
+
+                self.label6_2 = QtWidgets.QLabel()
+                self.label6_2.setTextFormat(QtCore.Qt.AutoText)
+                self.label6_2.setText('环境要求:\n\
+                1、机器人一定要在室内运行，且空间不能过于狭窄。\n\
+                2、最好时刻保证机器人的工作温度在15°C到35°C间。\n\
+                3、避免与雨水、雾、积水以及任何其他液体接触等。')
+                self.label6_2.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,00,00);
+                                                border-width:5;border-style:ridge;border-color:#FF9900;
+                                                font-family:等线;''')
+                self.label6_2.setAlignment(Qt.AlignCenter)
+                
+
+                self.label6_3 = QtWidgets.QLabel()
+                self.label6_3.setTextFormat(QtCore.Qt.AutoText)
+                self.label6_3.setText("避免损伤:\n\
+                1、避免因机器人速度过快造成的损伤。\n\
+                2、避免机器人接近地图边界时的碰撞。\n\
+                3、注意机械臂在抓取时的姿态和力度。")
+                self.label6_3.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,00,00);
+                                                border-width:5;border-style:ridge;border-color:#FF9900;
+                                                font-family:等线;''')
+                self.label6_3.setAlignment(Qt.AlignCenter)
+
+                self.layout6.addWidget(self.label6_1,0,0,1,4)
+                self.layout6.addWidget(self.label6_2,1,0,1,2)
+                self.layout6.addWidget(self.label6_3,1,2,1,2)
+                #self.layout6.addWidget(self.label6_4,2,0,1,2)
+                #self.layout6.addWidget(self.label6_5,2,2,1,2)
+
+                self.right_widget.addWidget(self.centralWidget6)
+				
+			elif i == 7:
                 self.centralWidget7=QtWidgets.QWidget()
                 self.centralWidget7.setStyleSheet('''background:black;border-width:0;''');
 
@@ -311,7 +357,7 @@ class LeftTabWidget(QWidget):
                 self.layout7.addWidget(self.label7_5,2,2,1,2)
 
                 self.right_widget.addWidget(self.centralWidget7)
-	    elif i == 9:
+			elif i == 9:
                 self.centralWidget9 = QtWidgets.QWidget()
                 self.centralWidget9.setStyleSheet('''background:black;border-width:0;''');
 
