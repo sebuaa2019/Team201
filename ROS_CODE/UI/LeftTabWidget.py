@@ -201,12 +201,15 @@ class LeftTabWidget(QWidget):
             
     def button2_1click(self):
         print("roslaunch wpb_home_tutorials gmapping.launch")
-        
+        os.system("gnome-terminal -e 'bash -c \"roslaunch wpb_home_tutorials gmapping.launch\"'")
+	
     def button2_2click(self):
         print("rosrun map_server map_saver -f map")
-        
+        os.system("gnome-terminal -e 'bash -c \"rosrun map_server map_saver -f map&&cp map.yaml /home/robot/catkin_ws/src/wpb_home/wpb_home_tutorials/maps/map.yaml&&cp map.pgm /home/robot/catkin_ws/src/wpb_home/wpb_home_tutorials/maps/map.pgm\"'")
+	
     def button2_3click(self):
         print("roslaunch waterplus_map_tools add_waypoint.launch")
+	os.system("gnome-terminal -e 'bash -c \"roslaunch waterplus_map_tools add_waypoint.launch\"'")
         
     def button2_4click(self):
         print("rosrun waterplus_map_tools wp_saver")
@@ -214,7 +217,8 @@ class LeftTabWidget(QWidget):
 	
         
     def button2_5click(self):
-        
+        os.system("gnome-terminal -e 'bash -c \"roslaunch wpb_home_apps 6_path_plan.launch; exec bash\"'")
+	
     def button2_6click(self):
         
 
