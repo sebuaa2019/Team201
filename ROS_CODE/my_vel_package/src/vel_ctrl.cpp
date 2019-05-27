@@ -28,6 +28,78 @@ ros::Publisher cmd_vel_pub;
 ros::Publisher cmd_stop_pub;
 std_msgs::Int8 stop_vel;
 
+bool check_front_obstacle(sensor_msgs::LaserScan laser)
+{
+	for(int i=start_index; i<end_index; i++)
+	{
+		double x,y;
+                if(!isinf(laser.ranges[i])){	
+			y = laser.ranges[i] * sin(laser.angle_min + i * laser.angle_increment);
+        		x = laser.ranges[i] * cos(laser.angle_min + i * laser.angle_increment);
+		}
+		else continue;
+        	if (( x < x_region) && (fabs(y) < y_region)) {
+			ROS_INFO("CHECK FRONT OBSTACLES TRUE");			
+			return true;
+		}
+	}
+	return false;
+}
+
+void index(int i,int* startj,int* endj){
+    if(i>=44) *startj = i-44;
+    else *startj = i-44+360;
+
+    if(i<315) *endj=i+45;
+    else *endj=i+45-360;
+}
+
+bool find_path(sensor_msgs::LaserScan laser,int i)
+{
+    ROS_INFO("START FIND PATH");
+    int j,startj,endj;
+    double x,y;
+    index(i,&startj,&endj);
+    
+    if(i<44){
+        for(j=0;j<=endj;j++){
+            if(isinf(laser.ranges[j])) continue;
+            y = fabs(laser.ranges[j] * cos((j-i)*laser.angle_increment));
+            x = fabs(laser.ranges[j] * sin((j-i)*laser.angle_increment));
+            if ((x < x_region) && (fabs(y) < y_region)) return false;
+        }
+        for(j=startj;j<=359;j++){
+	    if(isinf(laser.ranges[j])) continue;
+            y = fabs(laser.ranges[j] * cos((j-i)*laser.angle_increment)); 
+            x = fabs(laser.ranges[j] * sin((j-i)*laser.angle_increment));
+            if ((x < x_region) && (fabs(y) < y_region)) return false;
+        }
+    }
+    else if(i>=315){
+        for(j=startj;j<=359;j++){
+            if(isinf(laser.ranges[j])) continue;
+            y = fabs(laser.ranges[j] * cos((j-i)*laser.angle_increment));            
+            x = fabs(laser.ranges[j] * sin((j-i)*laser.angle_increment));
+            if ((x < x_region) && (fabs(y) < y_region)) return false;
+        }
+        for(j=0;j<=endj;j++){
+	    if(isinf(laser.ranges[j])) continue;
+            y = fabs(laser.ranges[j] * cos((j-i)*laser.angle_increment));
+            x = fabs(laser.ranges[j] * sin((j-i)*laser.angle_increment));
+            if ((x < x_region) && (fabs(y) < y_region)) return false;
+        }
+    }
+    else{
+        for(j=startj;j<=endj;j++){
+            if(isinf(laser.ranges[j])) continue;
+            y = fabs(laser.ranges[j] * cos((j-i)*laser.angle_increment));
+            x = fabs(laser.ranges[j] * sin((j-i)*laser.angle_increment));
+            if ((x< x_region) && (fabs(y) < y_region)) return false;
+        }
+    }
+    ROS_INFO("HAVE FOUND A PATH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    return true;
+}
 
 void autonomous_behave(const sensor_msgs::LaserScan &laser)
 {
