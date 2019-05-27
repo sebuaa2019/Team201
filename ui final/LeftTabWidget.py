@@ -213,7 +213,6 @@ class LeftTabWidget(QWidget):
                 self.button2_5.setText("开始导航")
                 self.button2_5.clicked.connect(self.button2_5click)
                 
-                
                 self.comboBox2 = QtWidgets.QComboBox(self.centralWidget2)
                 self.comboBox2.setGeometry(QtCore.QRect(210, 410, 100, 30))
                 self.comboBox2.setObjectName("comboBox")
