@@ -69,6 +69,8 @@
   <arg name="respawn"           default="true"/>
   <arg name="use_nodelet"       default="true"/>
   <arg name="output"            default="log"/>
+  
+  
 
   <machine name="localhost" address="localhost" if="$(arg use_machine)"/>
 
