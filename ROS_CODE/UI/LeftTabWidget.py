@@ -1,5 +1,6 @@
 import sys
 import os
+import regex as re
 import time
 
 from PyQt5.QtCore import *
@@ -12,6 +13,9 @@ import qtawesome
 class LeftTabWidget(QWidget):
     '''左侧选项栏'''
 
+    pointlist=[] #########
+    renameIndex = 1
+    
     def __init__(self):
         super(LeftTabWidget, self).__init__()
         self.setObjectName('LeftTabWidget')
@@ -195,7 +199,24 @@ class LeftTabWidget(QWidget):
                 self.centralWidget0.setStyleSheet('''background:white;border-width:0;''');
                 self.right_widget.addWidget(self.centralWidget0)
             
-
+    def button2_1click(self):
+        print("roslaunch wpb_home_tutorials gmapping.launch")
+        
+    def button2_2click(self):
+        print("rosrun map_server map_saver -f map")
+        
+    def button2_3click(self):
+        print("roslaunch waterplus_map_tools add_waypoint.launch")
+        
+    def button2_4click(self):
+        print("rosrun waterplus_map_tools wp_saver")
+        
+	
+        
+    def button2_5click(self):
+        
+    def button2_6click(self):
+        
 
 def main():
     ''' '''
