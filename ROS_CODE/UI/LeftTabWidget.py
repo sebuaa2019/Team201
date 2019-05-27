@@ -144,7 +144,52 @@ class LeftTabWidget(QWidget):
                 self.layout1.addWidget(self.button1,  9, 4, 2, 2)
                 self.right_widget.addWidget(self.centralWidget1)
                 
+            if i == 2:
+                self.centralWidget2=QtWidgets.QWidget()
+                
+                self.button2_1 = QtWidgets.QPushButton(self.centralWidget2)
+                self.button2_1.setGeometry(QtCore.QRect(210, 110, 100, 60))
+                self.button2_1.setObjectName("button1")
+                self.button2_1.setText("构建地图")
+                self.button2_1.clicked.connect(self.button2_1click)
 
+                self.button2_2 = QtWidgets.QPushButton(self.centralWidget2)
+                self.button2_2.setGeometry(QtCore.QRect(350, 110, 100, 60))
+                self.button2_2.setObjectName("button2")
+                self.button2_2.setText("保存地图")
+                self.button2_2.clicked.connect(self.button2_2click)
+
+                self.button2_3 = QtWidgets.QPushButton(self.centralWidget2)
+                self.button2_3.setGeometry(QtCore.QRect(210, 210, 100, 60))
+                self.button2_3.setObjectName("button3")
+                self.button2_3.setText("设立航点")
+                self.button2_3.clicked.connect(self.button2_3click)
+
+                self.button2_4 = QtWidgets.QPushButton(self.centralWidget2)
+                self.button2_4.setGeometry(QtCore.QRect(350, 210, 100, 60))
+                self.button2_4.setObjectName("button4")
+                self.button2_4.setText("保存航点")
+                self.button2_4.clicked.connect(self.button2_4click)
+
+                self.button2_5 = QtWidgets.QPushButton(self.centralWidget2)
+                self.button2_5.setGeometry(QtCore.QRect(210, 310, 240, 60))
+                self.button2_5.setObjectName("button5")
+                self.button2_5.setText("开始导航")
+                self.button2_5.clicked.connect(self.button2_5click)
+                
+
+                self.comboBox2 = QtWidgets.QComboBox(self.centralWidget2)
+                self.comboBox2.setGeometry(QtCore.QRect(210, 410, 100, 30))
+                self.comboBox2.setObjectName("comboBox")
+                #self.comboBox2.addItems(self.pointlist)
+
+                self.button2_6 = QtWidgets.QPushButton(self.centralWidget2)
+                self.button2_6.setGeometry(QtCore.QRect(350, 410, 100, 30))
+                self.button2_6.setObjectName("button6")
+                self.button2_6.setText("G O !")
+                self.button2_6.clicked.connect(self.button2_6click)
+
+                self.right_widget.addWidget(self.centralWidget2)
             else:
                 self.centralWidget0=QtWidgets.QWidget()
                 self.centralWidget0.setStyleSheet('''background:white;border-width:0;''');
