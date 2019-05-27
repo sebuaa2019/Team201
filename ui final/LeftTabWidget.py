@@ -535,6 +535,8 @@ class LeftTabWidget(QWidget):
             f.write("\n")
             f.write(str(time))
 
+    def button2_1click(self):
+        print("roslaunch wpb_home_tutorials gmapping.launch")
 
 def main():
     ''' '''
