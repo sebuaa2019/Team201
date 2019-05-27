@@ -214,6 +214,10 @@ class LeftTabWidget(QWidget):
     def button2_4click(self):
         print("rosrun waterplus_map_tools wp_saver")
         
+	if os.path.exists('/home/robot/waypoints.xml') == False :
+            file = open('/home/robot/waypoints.xml','w')
+            file.write('<Waterplus>\n</Waterplus>')
+            file.close()
 	
         
     def button2_5click(self):
