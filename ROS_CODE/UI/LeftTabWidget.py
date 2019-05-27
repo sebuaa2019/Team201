@@ -148,7 +148,7 @@ class LeftTabWidget(QWidget):
                 self.layout1.addWidget(self.button1,  9, 4, 2, 2)
                 self.right_widget.addWidget(self.centralWidget1)
                 
-            if i == 2:
+            elif i == 2:
                 self.centralWidget2=QtWidgets.QWidget()
                 
                 self.button2_1 = QtWidgets.QPushButton(self.centralWidget2)
@@ -194,6 +194,64 @@ class LeftTabWidget(QWidget):
                 self.button2_6.clicked.connect(self.button2_6click)
 
                 self.right_widget.addWidget(self.centralWidget2)
+		
+	    elif i == 7:
+                self.centralWidget7=QtWidgets.QWidget()
+                self.centralWidget7.setStyleSheet('''background:black;border-width:0;''');
+
+                self.layout7 = QtWidgets.QGridLayout()  # 创建左侧部件的网格布局层
+                self.centralWidget7.setLayout(self.layout7)
+
+                ##start coding
+                self.label7_1 = QtWidgets.QLabel()
+                self.label7_1.setTextFormat(QtCore.Qt.AutoText)
+                self.label7_1.setText("硬件设置")
+                self.label7_1.setStyleSheet('''color:white;font-size:23px;background:#FF9900;
+                                                font-family:Times new Romans;''');
+                self.label7_1.setAlignment(Qt.AlignCenter)
+
+                self.label7_2 = QtWidgets.QLabel()
+                self.label7_2.setTextFormat(QtCore.Qt.AutoText)
+                self.label7_2.setPixmap(QPixmap('structure.png'))
+                self.label7_2.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,00,00);
+                                                border-width:5;border-style:ridge;border-color:#FF9900;
+                                                font-family:等线;''')
+                #self.label7_2.setScaledContents(True)
+                self.label7_2.setAlignment(Qt.AlignCenter)
+                
+
+                self.label7_3 = QtWidgets.QLabel()
+                self.label7_3.setTextFormat(QtCore.Qt.AutoText)
+                self.label7_3.setPixmap(QPixmap('panel.png'))
+                self.label7_3.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,00,00);
+                                                border-width:5;border-style:ridge;border-color:#FF9900;
+                                                font-family:等线;''')
+                self.label7_3.setAlignment(Qt.AlignCenter)
+
+                self.label7_4 = QtWidgets.QLabel()
+                self.label7_4.setTextFormat(QtCore.Qt.AutoText)
+                self.label7_4.setText("结构组成")
+                self.label7_4.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,00,00);
+                                                border-width:5;border-style:ridge;border-color:#FF9900;
+                                                font-family:等线;''')
+                self.label7_4.setAlignment(Qt.AlignCenter)
+
+
+                self.label7_5 = QtWidgets.QLabel()
+                self.label7_5.setTextFormat(QtCore.Qt.AutoText)
+                self.label7_5.setText("开关面板")
+                self.label7_5.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,00,00);
+                                                border-width:5;border-style:ridge;border-color:#FF9900;
+                                                font-family:等线;''')
+                self.label7_5.setAlignment(Qt.AlignCenter)                
+
+                self.layout7.addWidget(self.label7_1,0,0,1,4)
+                self.layout7.addWidget(self.label7_2,1,0,1,2)
+                self.layout7.addWidget(self.label7_3,1,2,1,2)
+                self.layout7.addWidget(self.label7_4,2,0,1,2)
+                self.layout7.addWidget(self.label7_5,2,2,1,2)
+
+                self.right_widget.addWidget(self.centralWidget7)
             else:
                 self.centralWidget0=QtWidgets.QWidget()
                 self.centralWidget0.setStyleSheet('''background:white;border-width:0;''');
