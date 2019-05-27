@@ -213,18 +213,36 @@ class LeftTabWidget(QWidget):
         
     def button2_4click(self):
         print("rosrun waterplus_map_tools wp_saver")
-        
+        os.system("gnome-terminal -e 'bash -c \"cd /home/robot/&&rosrun waterplus_map_tools wp_saver\"'")
+        time.sleep(2)
+	#os.system("rosrun waterplus_map_tools wp_saver")
+        #os.system("gnome-terminal -e 'bash -c \"rosrun waterplus_map_tools wp_saver; exec bash\"'")
+	#save waypoints.xml into /home/robot/
+        self.comboBox2.clear()
 	if os.path.exists('/home/robot/waypoints.xml') == False :
             file = open('/home/robot/waypoints.xml','w')
             file.write('<Waterplus>\n</Waterplus>')
             file.close()
 	
+	f=open('/home/robot/waypoints.xml', 'w')
+        f.write(newFile)
+        f.close()
+        self.renameIndex = 1
+        f=open('/home/robot/waypoints.xml', 'r')
+        pointlist=re.findall(r"(?<=<Name>).+?(?=</Name>)", f.read(), re.S)
+        print(pointlist)
+        self.comboBox2.addItems(pointlist)
+        f.close()
         
     def button2_5click(self):
         os.system("gnome-terminal -e 'bash -c \"roslaunch wpb_home_apps 6_path_plan.launch; exec bash\"'")
 	
     def button2_6click(self):
-        
+        print(self.comboBox2.currentIndex()+1)
+	#get to the chosed point
+        pointoutput = open('/home/robot/point.txt', 'w')
+        pointoutput.write(str(self.comboBox2.currentIndex()+1))
+        pointoutput.close()
 
 def main():
     ''' '''
