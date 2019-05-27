@@ -253,6 +253,165 @@ class LeftTabWidget(QWidget):
                 self.layout2.addWidget(self.label2_2, 9,1,1,7)
                 
                 self.right_widget.addWidget(self.centralWidget2)
+
+	    elif i == 3:
+                self.label3_1 = QtWidgets.QLabel()
+                self.label3_1.setTextFormat(QtCore.Qt.AutoText)
+                self.label3_1.setText("抓取")
+                self.label3_1.setStyleSheet('''color:white;font-size:23px;background:rgb(100,100,100,80;background:#454545);
+                                                font-family:等线;''');
+                self.label3_1.setAlignment(Qt.AlignCenter)
+
+
+                self.label3_2 = QtWidgets.QLabel()
+                self.label3_2.setAlignment(Qt.AlignCenter)
+                pixmap=QPixmap('C:\\Users\\lenovo\\Desktop\\指南针.png').scaled(self.label3_2.width()*0.25, self.label3_2.height()*0.35)
+                self.label3_2.setPixmap(pixmap)
+
+
+                self.label3_3 = QtWidgets.QLabel()
+                self.label3_3.setAlignment(Qt.AlignCenter)
+                pixmap=QPixmap('C:\\Users\\lenovo\\Desktop\\放大镜.png').scaled(self.label3_3.width()*0.25, self.label3_3.height()*0.35)
+                self.label3_3.setPixmap(pixmap)
+    
+ 
+                self.centralWidget3=QtWidgets.QWidget()
+                self.centralWidget3.setStyleSheet('''background:#636363;border-width:0;''');
+                self.layout3 = QtWidgets.QGridLayout()  # 创建左侧部件的网格布局层
+                self.centralWidget3.setLayout(self.layout3) 
+
+                self.button3_1 = QtWidgets.QPushButton()
+                self.button3_1.setText("标定航点")
+                self.button3_1.setFixedSize(200,40)
+                self.button3_1.setStyleSheet('''
+                    QPushButton{
+                        border:none;color:white;
+                        border-bottom:1px solid white;
+                        font-size:20px;
+                        font-weight:700;
+                        font-family:等线;
+                    }
+                ''')
+                
+
+                self.button3_2 = QtWidgets.QPushButton()
+                self.button3_2.setText("检测物体并抓取")
+                self.button3_2.setFixedSize(200,40)
+                self.button3_2.setStyleSheet('''
+                    QPushButton{
+                        border:none;color:white;
+                        border-bottom:1px solid white;
+                        font-size:20px;
+                        font-weight:700;
+                        font-family:等线;
+                    }
+                ''')
+
+                self.layout3.addWidget(QtWidgets.QWidget(), 1, 0, 1, 10)
+                self.layout3.addWidget(QtWidgets.QWidget(), 5, 0, 2, 10)
+                self.layout3.addWidget(self.label3_1, 0, 0, 1, 9)
+                self.layout3.addWidget(self.label3_2, 2, 2, 1, 1)
+                self.layout3.addWidget(self.label3_3, 2, 6, 1, 1)
+                self.layout3.addWidget(self.button3_1, 4, 2, 1, 2)
+                self.layout3.addWidget(self.button3_2, 4, 6, 1, 2)
+                self.right_widget.addWidget(self.centralWidget3)
+		
+	    elif i == 5:
+                self.centralWidget5=QtWidgets.QWidget()
+                self.centralWidget5.setStyleSheet('''background:#636363;border-width:0;''');
+                self.layout5 = QtWidgets.QGridLayout()  # 创建左侧部件的网格布局层
+                self.centralWidget5.setLayout(self.layout5)
+
+                self.label5_0 = QtWidgets.QLabel()
+                self.label5_0.setTextFormat(QtCore.Qt.AutoText)
+                self.label5_0.setText("使用方法")
+                self.label5_0.setStyleSheet('''color:white;font-size:23px;background:rgb(100,100,100,80;background:#454545);
+                                                font-family:等线;''');
+                self.label5_0.setAlignment(Qt.AlignCenter)
+
+                self.label5_1 = QtWidgets.QLabel()
+                self.label5_1.setAlignment(Qt.AlignCenter)
+                pixmap=QPixmap('robot.png').scaled(self.label5_1.width()*0.07, self.label5_1.height()*0.10)
+                self.label5_1.setPixmap(pixmap)
+
+                self.label5_2 = QtWidgets.QLabel()
+                self.label5_2.setAlignment(Qt.AlignCenter)
+                pixmap=QPixmap('避障.png').scaled(self.label5_2.width()*0.07, self.label5_2.height()*0.10)
+                self.label5_2.setPixmap(pixmap)
+
+                self.label5_3 = QtWidgets.QLabel()
+                self.label5_3.setAlignment(Qt.AlignCenter)
+                pixmap=QPixmap('导航.png').scaled(self.label5_3.width()*0.07, self.label5_3.height()*0.10)
+                self.label5_3.setPixmap(pixmap)
+
+                self.label5_4 = QtWidgets.QLabel()
+                self.label5_4.setAlignment(Qt.AlignCenter)
+                pixmap=QPixmap('抓取.png').scaled(self.label5_4.width()*0.07, self.label5_4.height()*0.10)
+                self.label5_4.setPixmap(pixmap)
+
+
+                self.label5_5 = QtWidgets.QLabel()    #设置label
+                self.label5_5.setTextFormat(QtCore.Qt.AutoText)
+                self.label5_5.setText('''
+                                        控制界面：MOSS软件平台，了解关于MOSS的一切服务\n
+                                        打开MOSS：按下底盘上的开关按钮使之变亮\n
+                                        关闭MOSS：按下底盘上的开关按钮使之变暗\n
+                                        USB连接： 麦克风、相机、机械臂、雷达、以太网等\n
+                                       （具体接口参照MOSS手册）''')
+                self.label5_5.setStyleSheet('''color:white;font-size:14px; font-family:等线;''');
+                self.label5_5.setAlignment(Qt.AlignLeft)
+
+                self.label5_6 = QtWidgets.QLabel()    #设置label
+                self.label5_6.setTextFormat(QtCore.Qt.AutoText)
+                self.label5_6.setText('''
+                                        避障：遇到障碍物则避障，随机行走\n
+                                        输入速度，机器人将以该速度前进\n
+                                        输入时间，机器人在指定时间内运行，时间完毕则停止\n
+                                        点击开始按钮，机器人开始避障（输入的时间与速度都\n
+                                        应符合要求）''')
+                self.label5_6.setStyleSheet('''color:white;font-size:14px; font-family:等线;''');
+                self.label5_6.setAlignment(Qt.AlignLeft)
+
+                self.label5_7 = QtWidgets.QLabel()    #设置label
+                self.label5_7.setTextFormat(QtCore.Qt.AutoText)
+                self.label5_7.setText('''
+                                        导航：机器人行走至目标航点\n
+                                        点击建立地图按钮，使用手柄建立地图，地图应覆盖需要行走到的航点\n
+                                        点击保存地图按钮，保存刚刚建立的地图\n
+                                        点击标定航点按钮，在地图上标定可能的航点\n
+                                        点击保存航点按钮，保存刚刚标定的航点信息\n
+                                        在下拉菜单中选择需要机器人行走到的航点\n
+                                        点击开始导航按钮，机器人将行走至目标航点''')
+                self.label5_7.setStyleSheet('''color:white;font-size:14px; font-family:等线;''');
+                self.label5_7.setAlignment(Qt.AlignLeft)
+
+                self.label5_8 = QtWidgets.QLabel()    #设置label
+                self.label5_8.setTextFormat(QtCore.Qt.AutoText)
+                self.label5_8.setText('''
+                                        抓取：机器人识别目标物体并进行抓取\n
+                                        点击建立航点按钮，带领机器人用语音标定航点\n
+                                        点击开始检测并抓取按钮，机器人将识别出目标物体\n
+                                        并完成抓取动作\n
+                                        抓取结束后机器人将回到开始识别的地点并将物体递给用户''')
+                self.label5_8.setStyleSheet('''color:white;font-size:14px; font-family:等线;''');
+                self.label5_8.setAlignment(Qt.AlignLeft)
+                
+
+                '''
+                self.layout5.addWidget(self.label5_3, 2, 6, 1, 1)
+                self.layout5.addWidget(self.button5_1, 4, 2, 1, 2)
+                self.layout5.addWidget(self.button5_2, 4, 6, 1, 2)
+                '''
+                self.layout5.addWidget(self.label5_0, 0, 0, 1, 8)
+                self.layout5.addWidget(self.label5_1, 1, 0, 1, 4)
+                self.layout5.addWidget(self.label5_2, 1, 4, 1, 4)
+                self.layout5.addWidget(self.label5_3, 5, 0, 1, 4)
+                self.layout5.addWidget(self.label5_4, 5, 4, 1, 4)
+                self.layout5.addWidget(self.label5_5, 2, 0, 3, 4)
+                self.layout5.addWidget(self.label5_6, 2, 4, 3, 4)
+                self.layout5.addWidget(self.label5_7, 6, 0, 3, 4)
+                self.layout5.addWidget(self.label5_8, 6, 4, 3, 4)
+                self.right_widget.addWidget(self.centralWidget5)
 		
             elif i == 6:
                 self.centralWidget6=QtWidgets.QWidget()
