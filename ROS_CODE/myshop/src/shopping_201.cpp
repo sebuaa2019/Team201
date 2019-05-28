@@ -1,5 +1,6 @@
 #include <iostream>
 #include <ros/ros.h>
+#include "exception.h"
 #include <std_msgs/String.h>
 #include "wpb_home_tutorials/Follow.h"
 #include <geometry_msgs/Twist.h>
@@ -135,14 +136,14 @@ static void FollowSwitch(bool inActive, float inDist)
         srvFlw.request.thredhold = inDist;
         if (!follow_start.call(srvFlw))
         {
-            ROS_WARN("[CActionManager] - follow start failed...");
+            follow_start_fail();
         }
     }
     else
     {
         if (!follow_stop.call(srvFlw))
         {
-            ROS_WARN("[CActionManager] - failed to stop following...");
+	    follow_stop_fail();
         }
     }
 }
@@ -376,7 +377,7 @@ int main(int argc, char** argv)
                     }
                     else
                     {
-                        ROS_INFO("Failed to get to %s ...",strGoto.c_str() );
+                        goto_fail();
                         Speak("Failed to go to the waypoint.");
                         nState = STATE_ASK;
                     }
@@ -385,7 +386,7 @@ int main(int argc, char** argv)
             }
             else
             {
-                ROS_ERROR("Failed to call service GetWaypointByName");
+                find_waypoint_fail();
                 Speak("There is no this waypoint.");
                 nState = STATE_ASK;
             }
