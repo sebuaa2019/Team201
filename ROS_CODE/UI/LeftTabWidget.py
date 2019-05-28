@@ -622,7 +622,35 @@ class LeftTabWidget(QWidget):
                     self.centralWidget0=QtWidgets.QWidget()
                     self.centralWidget0.setStyleSheet('''background:white;border-width:0;''');
                     self.right_widget.addWidget(self.centralWidget0)
-            
+
+    def button1_1click(self):
+        vel = 0
+        time = 0  
+
+        if self.edit1_1.text() == "":
+            vel = 0.5
+        else:
+            vel = float(self.edit1_1.text())
+
+        if self.edit1_2.text() == "":
+            time = 60
+        else: 
+            time = int(self.edit1_2.text())
+
+        self.setConfig(vel,time)
+
+        os.system(free_walk_cmd)
+
+    def setConfig(self,vel,time):
+        vel_pattern = re.compile(vel_config)
+        time_pattern = re.compile(time_config)
+
+        with open(config_path,"w") as f:
+            f.truncate()
+            f.write(str(vel))
+            f.write("\n")
+            f.write(str(time))
+
     def button2_1click(self):
         print("roslaunch wpb_home_tutorials gmapping.launch")
         os.system("gnome-terminal -e 'bash -c \"roslaunch wpb_home_tutorials gmapping.launch\"'")
