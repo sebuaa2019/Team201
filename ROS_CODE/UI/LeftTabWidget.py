@@ -583,7 +583,7 @@ class LeftTabWidget(QWidget):
 
                 self.label9_2 = QtWidgets.QLabel()
                 self.label9_2.setTextFormat(QtCore.Qt.AutoText)
-                self.label9_2.setText("机器人不能运动：\n检查是否有充足电量(23%+)及急停按钮是否被释放")
+                self.label9_2.setText("机器人在下达指令后不能移动：\n检查是否有充足电量(是否大于23？)，不足请充电\n急停按钮是否被释放,未释放请释放后再使用")
                 self.label9_2.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,00,00);
                                                 border-width:5;border-style:ridge;border-color:#FF9900;
                                                 font-family:等线;''')
