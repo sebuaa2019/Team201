@@ -11,6 +11,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
+#include "exception.h"
 
 #define RAYS 1081
 #define PI 3.1415
@@ -37,7 +38,7 @@ bool check_front_obstacle(sensor_msgs::LaserScan laser)
 			y = laser.ranges[i] * sin(laser.angle_min + i * laser.angle_increment);
         		x = laser.ranges[i] * cos(laser.angle_min + i * laser.angle_increment);
 		}
-		else continue;
+		else inf_error();
         	if (( x < x_region) && (fabs(y) < y_region)) {
 			ROS_INFO("CHECK FRONT OBSTACLES TRUE");			
 			return true;
@@ -202,7 +203,7 @@ int main(int argc, char **argv)
 	
     FILE *fp;
     if((fp= fopen("/home/robot/catkin_ws/src/my_vel_package/src/config.txt","r"))==NULL){
-	cout<<"file error";
+	file_no_open();
 	exit(1);
     }
     while(fgets(buffer,32,fp)!=NULL){
