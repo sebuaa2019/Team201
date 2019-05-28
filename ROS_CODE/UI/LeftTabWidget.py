@@ -601,7 +601,7 @@ class LeftTabWidget(QWidget):
 
                 self.label9_4 = QtWidgets.QLabel()
                 self.label9_4.setTextFormat(QtCore.Qt.AutoText)
-                self.label9_4.setText("机器人撞击障碍物：\n立即使用急停按钮紧急停止并联系我们")
+                self.label9_4.setText("机器人发生撞击障碍物情况：\n立即使用急停按钮紧急停止\n在“联系我们”处查找联系方式，对我们进行故障反馈")
                 self.label9_4.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,00,00);
                                                 border-width:5;border-style:ridge;border-color:#FF9900;
                                                 font-family:等线;''')
