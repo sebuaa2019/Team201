@@ -616,6 +616,120 @@ class LeftTabWidget(QWidget):
                 self.layout9.addWidget(self.label9_5,2,2,1,2)
 
                 self.right_widget.addWidget(self.centralWidget9)
+	 elif i == 10:
+                self.centralWidget10=QtWidgets.QWidget()
+                self.centralWidget10.setStyleSheet('''background:black;border-width:0;''');
+
+                self.layout10 = QtWidgets.QGridLayout()  # 创建左侧部件的网格布局层
+                self.centralWidget10.setLayout(self.layout10)
+
+                self.label10_1 = QtWidgets.QLabel()
+                self.label10_1.setTextFormat(QtCore.Qt.AutoText)
+                self.label10_1.setText("Contact us!")
+                self.label10_1.setStyleSheet('''color:white;font-size:23px;background:#FF9900;
+                                                font-family:Times new Romans;''');
+                self.label10_1.setAlignment(Qt.AlignCenter)
+
+                self.label10_2 = QtWidgets.QLabel()
+                self.label10_2.setTextFormat(QtCore.Qt.AutoText)
+                self.label10_2.setPixmap(QPixmap('lzz.png'))
+                self.label10_2.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,0,0);
+                                                border-width:10;border-style:outset;border-color:red;
+                                                font-family:等线;''');
+                self.label10_2.setAlignment(Qt.AlignCenter)
+
+                self.label10_3 = QtWidgets.QLabel()
+                self.label10_3.setTextFormat(QtCore.Qt.AutoText)
+                self.label10_3.setText("组长 李贞子\n邮箱：ZhenziL@buaa.edu.cn\n负责：UI架构、自由避障行走、抓取\n格言：我是傻猪")
+                self.label10_3.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,00,00);
+                                                border-width:5;border-style:ridge;border-color:#FF9900;
+                                                font-family:等线;''');
+                self.label10_3.setAlignment(Qt.AlignCenter)
+
+                self.label10_4 = QtWidgets.QLabel()
+                self.label10_4.setTextFormat(QtCore.Qt.AutoText)
+                self.label10_4.setPixmap(QPixmap('wrz.png'))
+                self.label10_4.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,0,0);
+                                                border-width:10;border-style:outset;border-color:red;
+                                                font-family:等线;''');
+                self.label10_4.setAlignment(Qt.AlignCenter)
+
+                self.label10_5 = QtWidgets.QLabel()
+                self.label10_5.setTextFormat(QtCore.Qt.AutoText)
+                self.label10_5.setText("组员：王润泽\n邮箱：beihangcj@hotmail.com\n负责：自由避障行走以及抓取部分UI\n格言：广告位招租")
+                self.label10_5.setStyleSheet('''color:white;font-size:23px;background:rgb(00,0,0,0);
+                                                border-width:5;border-style:ridge;border-color:#FF9900;
+                                                font-family:等线;''');
+                self.label10_5.setAlignment(Qt.AlignCenter)
+
+                self.label10_6 = QtWidgets.QLabel()
+                self.label10_6.setTextFormat(QtCore.Qt.AutoText)
+                self.label10_6.setPixmap(QPixmap('zl.png'))
+                self.label10_6.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,00,0);
+                                                border-width:10;border-style:outset;border-color:red;
+                                                font-family:等线;''');
+                self.label10_6.setAlignment(Qt.AlignCenter)
+
+                self.label10_7 = QtWidgets.QLabel()
+                self.label10_7.setTextFormat(QtCore.Qt.AutoText)
+                self.label10_7.setText("组员：张璐\n邮箱：beihangcj@hotmail.com\n负责：导航部分功能\n格言：好好学习天天向上")
+                self.label10_7.setStyleSheet('''color:white;font-size:23px;background:rgb(0,00,0,0);
+                                                border-width:5;border-style:ridge;border-color:#FF9900;
+                                                font-family:等线;''');
+                self.label10_7.setAlignment(Qt.AlignCenter)
+
+                self.label10_8 = QtWidgets.QLabel()
+                self.label10_8.setTextFormat(QtCore.Qt.AutoText)
+                self.label10_8.setPixmap(QPixmap('zjl.png'))
+                self.label10_8.setStyleSheet('''color:white;font-size:23px;
+                                                border-width:10;border-style:outset;border-color:red;
+                                                background:rgb(100,100,100,100);
+                                                font-family:等线;''');
+                self.label10_8.setAlignment(Qt.AlignCenter)
+
+                self.label10_9 = QtWidgets.QLabel()
+                self.label10_9.setTextFormat(QtCore.Qt.AutoText)
+                self.label10_9.setText("组员：张佳琳\n邮箱：beihangcj@hotmail.com\n负责：导航部分UI\n格言：戏说不是胡说，改编不是乱编")
+                self.label10_9.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,0,0);
+                                                border-width:5;border-style:ridge;border-color:#FF9900;
+                                                font-family:等线;''');
+                self.label10_9.setAlignment(Qt.AlignCenter)
+
+                self.label10_10 = QtWidgets.QLabel()
+                self.label10_10.setTextFormat(QtCore.Qt.AutoText)
+                self.label10_10.setPixmap(QPixmap('lty.png'))
+                self.label10_10.setStyleSheet('''color:white;font-size:23px;background:rgb(00,00,0,0);
+                                                 border-width:10;border-style:outset;border-color:red;
+                                                font-family:等线;''');
+                self.label10_10.setAlignment(Qt.AlignCenter)
+
+                self.label10_11 = QtWidgets.QLabel()
+                self.label10_11.setTextFormat(QtCore.Qt.AutoText)
+                self.label10_11.setText("组员：李天宇\n邮箱：beihangcj@hotmail.com\n负责：动态避障功能\n格言：我不做人啦")
+                self.label10_11.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,0,0);
+                                                border-width:5;border-style:ridge;border-color:#FF9900;
+                                                font-family:等线;''');
+                self.label10_11.setAlignment(Qt.AlignCenter)
+
+                #self.layout10.setColumnStretch(0, 1)
+                self.layout10.addWidget(self.label10_1,1,1,1,6)
+
+                self.layout10.addWidget(self.label10_2,2,1)
+                self.layout10.addWidget(self.label10_3,3,1,2,1)
+
+                self.layout10.addWidget(self.label10_4,2,2)
+                self.layout10.addWidget(self.label10_5,3,2,2,1)
+
+                self.layout10.addWidget(self.label10_6,2,3)
+                self.layout10.addWidget(self.label10_7,3,3,2,1)
+
+                self.layout10.addWidget(self.label10_8,2,4)
+                self.layout10.addWidget(self.label10_9,3,4,2,1)
+
+                self.layout10.addWidget(self.label10_10,2,5)
+                self.layout10.addWidget(self.label10_11,3,5,2,1)
+
+                self.right_widget.addWidget(self.centralWidget10)
 		
             else:
 		if i!= 0 and i != 4 and i != 8:
