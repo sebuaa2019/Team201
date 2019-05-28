@@ -592,7 +592,7 @@ class LeftTabWidget(QWidget):
 
                 self.label9_3 = QtWidgets.QLabel()
                 self.label9_3.setTextFormat(QtCore.Qt.AutoText)
-                self.label9_3.setText("机器人部件损坏:\n联系我们、厂家进行维修")
+                self.label9_3.setText("机器人部件损坏或发生故障:\n在“联系我们”处查找联系方式，与我们进行联系咨询\n联系厂家进行维修或者更换")
                 self.label9_3.setStyleSheet('''color:white;font-size:23px;background:rgb(0,0,00,00);
                                                 border-width:5;border-style:ridge;border-color:#FF9900;
                                                 font-family:等线;''')
