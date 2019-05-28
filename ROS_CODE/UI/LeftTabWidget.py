@@ -130,7 +130,7 @@ class LeftTabWidget(QWidget):
 
             if i == 1:
                 self.centralWidget1=QtWidgets.QWidget()
-                self.centralWidget1.setStyleSheet('''background:#636363;border-width:0;''');
+                self.centralWidget1.setStyleSheet('''background:black;border-width:0;''');
                 self.layout1 = QtWidgets.QGridLayout()  # 创建左侧部件的网格布局层
                 self.centralWidget1.setLayout(self.layout1) 
                 
@@ -140,12 +140,18 @@ class LeftTabWidget(QWidget):
                 self.edit1_1.setStyleSheet('''color:white;background:transparent;border-width:0;
                                                 border-style:outset;border-bottom:1px solid white;
                                                 font-size:20px; font-family:等线;''')
-        
+                self.vel_reg = QRegExp(r"^(0)|(0\.[0-9])|(1)|(1\.0)$")
+                self.vel_validator = QRegExpValidator(self.vel_reg,self.edit1_1)
+                self.edit1_1.setValidator(self.vel_validator)
+            
                 self.edit1_2 = QtWidgets.QLineEdit()
                 self.edit1_2.setPlaceholderText("请输入时间(三位整数)")
                 self.edit1_2.setStyleSheet('''color:white;background:transparent;border-width:0;
                                                 border-style:outset;border-bottom:1px solid white;
                                                 font-size:20px; font-family:等线;''')
+                self.time_reg = QRegExp("^[0-9]{3}$")
+                self.time_validator = QRegExpValidator(self.time_reg,self.edit1_2)
+                self.edit1_2.setValidator(self.time_validator)
                 
                 self.label1_1 = QtWidgets.QLabel()    #设置label
                 self.label1_1.setTextFormat(QtCore.Qt.AutoText)
@@ -161,7 +167,7 @@ class LeftTabWidget(QWidget):
 
                 self.label1_3 = QtWidgets.QLabel()
                 self.label1_3.setTextFormat(QtCore.Qt.AutoText)
-                self.label1_3.setText("避障")
+                self.label1_3.setText("扫地")
                 self.label1_3.setStyleSheet('''color:white;font-size:23px;background:rgb(100,100,100,80;background:#454545);
                                                 font-family:等线;''');
                 self.label1_3.setAlignment(Qt.AlignCenter)
@@ -171,7 +177,8 @@ class LeftTabWidget(QWidget):
                 self.button1.setFixedSize(100,40)
                 self.button1.setStyleSheet('''QPushButton{background:#EE9A00;border-radius:10px;font-family:等线;
                                                font-size:18px;color:white}QPushButton:hover{background:#EEDC82;}''')
-        
+                self.button1.clicked.connect(self.button1_1click)
+
                 self.layout1.setColumnStretch(0, 2)
                 self.layout1.setColumnStretch(1, 2)
                 self.layout1.setColumnStretch(2, 2)
