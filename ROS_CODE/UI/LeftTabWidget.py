@@ -78,11 +78,53 @@ class LeftTabWidget(QWidget):
                 self.item.setFont(QFont("等线",13,QFont.Bold))
                 if i == 0:
                     self.item.setIcon(qtawesome.icon('fa.hand-pointer-o',color ='white'))
+		    
+	            self.centralWidget0=QtWidgets.QWidget()
+                    self.centralWidget0.setStyleSheet('''background:#636363;border-width:0;''');
+                    self.layout0 = QtWidgets.QGridLayout()  # 创建左侧部件的网格布局层
+                    self.centralWidget0.setLayout(self.layout0) 
+                    #self.centralWidget0.setLayout(self.layout0)
+                    self.label0_1 = QtWidgets.QLabel()    #设置label
+                    self.label0_1.setTextFormat(QtCore.Qt.AutoText)
+                    self.label0_1.setStyleSheet('''color:white;font-size:23px; font-family:等线;''');
+                    self.label0_1.setAlignment(Qt.AlignCenter)
+                    self.label0_1.setPixmap(QPixmap('cp03.jpg'))
+                    self.layout0.addWidget(self.label0_1, 0, 0, 1, 9)
+                    
+                    self.right_widget.addWidget(self.centralWidget0)
                 elif i == 4:
                     self.item.setIcon(qtawesome.icon('fa.tags',color ='white'))
+		
+		    self.centralWidget4=QtWidgets.QWidget()
+                    self.centralWidget4.setStyleSheet('''background:#636363;border-width:0;''');
+                    self.layout4 = QtWidgets.QGridLayout()  # 创建左侧部件的网格布局层
+                    self.centralWidget4.setLayout(self.layout4) 
+                    #self.centralWidget0.setLayout(self.layout0)
+                    self.label4_1 = QtWidgets.QLabel()    #设置label
+                    self.label4_1.setTextFormat(QtCore.Qt.AutoText)
+                    self.label4_1.setStyleSheet('''color:white;font-size:23px; font-family:等线;''');
+                    self.label4_1.setAlignment(Qt.AlignCenter)
+                    self.label4_1.setPixmap(QPixmap('cp03.jpg'))
+                    self.layout4.addWidget(self.label4_1, 0, 0, 1, 9)
+                    
+                    self.right_widget.addWidget(self.centralWidget4)
                 elif i == 8:
                     self.item.setIcon(qtawesome.icon('fa.envelope',color ='white'))
-
+		    
+		    self.centralWidget8=QtWidgets.QWidget()
+                    self.centralWidget8.setStyleSheet('''background:#636363;border-width:0;''');
+                    self.layout8 = QtWidgets.QGridLayout()  # 创建左侧部件的网格布局层
+                    self.centralWidget8.setLayout(self.layout8) 
+                    #self.centralWidget0.setLayout(self.layout0)
+                    self.label8_1 = QtWidgets.QLabel()    #设置label
+                    self.label8_1.setTextFormat(QtCore.Qt.AutoText)
+                    self.label8_1.setStyleSheet('''color:white;font-size:23px; font-family:等线;''');
+                    self.label8_1.setAlignment(Qt.AlignCenter)
+                    self.label8_1.setPixmap(QPixmap('cp03.jpg'))
+                    self.layout8.addWidget(self.label8_1, 0, 0, 1, 9)
+                    
+                    self.right_widget.addWidget(self.centralWidget8)
+		
             self.item.setSizeHint(QSize(60,65))
             self.item.setTextAlignment(Qt.AlignCenter)                  #居中显示
 
@@ -576,9 +618,10 @@ class LeftTabWidget(QWidget):
                 self.right_widget.addWidget(self.centralWidget9)
 		
             else:
-                self.centralWidget0=QtWidgets.QWidget()
-                self.centralWidget0.setStyleSheet('''background:white;border-width:0;''');
-                self.right_widget.addWidget(self.centralWidget0)
+		if i!= 0 and i != 4 and i != 8:
+                    self.centralWidget0=QtWidgets.QWidget()
+                    self.centralWidget0.setStyleSheet('''background:white;border-width:0;''');
+                    self.right_widget.addWidget(self.centralWidget0)
             
     def button2_1click(self):
         print("roslaunch wpb_home_tutorials gmapping.launch")
