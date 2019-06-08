@@ -818,6 +818,12 @@ class LeftTabWidget(QWidget):
         pointoutput = open('/home/robot/point.txt', 'w')
         pointoutput.write(str(self.comboBox2.currentIndex()+1))
         pointoutput.close()
+	
+    def button3_1click(self):
+        os.system("roslaunch myshop shopping_201.launch")
+
+    def button3_2click(self):
+        os.system("roslaunch darknet_ros darknet_ros.launch")
 
 def main():
     ''' '''
