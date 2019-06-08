@@ -246,45 +246,6 @@ void PassResultCallback(const std_msgs::String::ConstPtr& res)
     }
 }
 
-void MyCB(const darknet_ros_msgs::BoundingBoxes &msg){
-	int i,size,index1=-1,index2=-1,index3=-1,xmin,minindex,temp,index_obj=-1,cnt=0;
-	ROS_WARN("CALLBACKHERE");
-	if(flag==0){
-		ROS_WARN("enter flag");
-		size = msg.num;
-		ROS_WARN("size = %d",size);
-		//size = 5;
-		darknet_ros_msgs::BoundingBox object_array[3];
-		
-		for(i=0;i<size;i++){
-			if(msg.bounding_boxes[i].Class.compare(OBJ)==0) index_obj=i;
-			if(msg.bounding_boxes[i].Class.compare(OBJ1)==0) index1=i;
-			else if(msg.bounding_boxes[i].Class.compare(OBJ2)==0) index2=i;
-			else if(msg.bounding_boxes[i].Class.compare(OBJ3)==0) index3=i;
-			ROS_WARN("i = %d",i);
-			cout << msg.bounding_boxes[i].Class << endl;
-		}
-		ROS_WARN("comparison completed");
-		if(index1>=0 && index2>=0 && index3>=0 && index_obj>=0){
-			ROS_WARN("three required object detected!");
-			object_array[0] = msg.bounding_boxes[index1];
-			object_array[1] = msg.bounding_boxes[index2];
-			object_array[2] = msg.bounding_boxes[index3];
-	
-			cnt =0;
-			xmin = msg.bounding_boxes[index_obj].xmin;
-			for(i=0;i<3;i++){
-				if(object_array[i].xmin<xmin) cnt++;
-			}	
-			ROS_WARN("change state");
-			strGoto=index2waypoint[cnt];
-			nState = STATE_GOTO;
-			flag++;
-		}
-		ROS_WARN("END");
-	}
-}
-
 
 int main(int argc, char** argv)
 {
