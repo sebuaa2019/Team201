@@ -305,7 +305,7 @@ int main(int argc, char** argv)
     grab_result_sub = n.subscribe<std_msgs::String>("/wpb_home/grab_result",30,&GrabResultCallback);
     pass_result_sub = n.subscribe<std_msgs::String>("/wpb_home/pass_result",30,&PassResultCallback);
     
-    
+    ros::Subscriber sub_grab = n.subscribe("darknet_ros/bounding_boxes", 1, MyCB);
 
     InitKeyword();
 
